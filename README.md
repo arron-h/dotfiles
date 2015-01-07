@@ -8,6 +8,7 @@ Just symlink these files from ~/
 
 ## Brew
 Install Homebrew and then:
+
 	$ ./setup_brew.sh [--no-cask]
 
 ## Other things which can’t be automated
