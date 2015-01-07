@@ -17,9 +17,11 @@ install ctags
 install curl
 install git
 install lynx
-install macvim --override-system-vim
 install node
 install python
 install sqlite
+install ruby
+
+install macvim --override-system-vim
 
 cleanup
