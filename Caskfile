@@ -1,8 +1,16 @@
-# install native apps
-
+# Install cask addon
 install caskroom/cask/brew-cask
 tap caskroom/versions
 
+# Application
 cask install dropbox
 cask install iterm2
 cask install 1password
+cask install hex-fiend
+
+# Quicklook plugins
+cask install qlmarkdown
+cask install qlcolorcode
+cask install qlstephen
+cask install quicklook-json
+cask install quicklook-csv
