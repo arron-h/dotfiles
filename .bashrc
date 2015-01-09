@@ -5,22 +5,33 @@
 
 export PATH=/usr/local/bin:$PATH
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-	. $(brew --prefix)/etc/bash_completion
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+if [ "$(uname)" == "Darwin" ]; then
+	if [ -f $(brew --prefix)/etc/bash_completion ]; then
+		. $(brew --prefix)/etc/bash_completion
+	fi
+else
+	if [ -f /etc/bash_completion ]; then
+		. /etc/bash_completion
+	fi
 fi
 
+# Shell options
 export TERM=xterm-256color
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 export EDITOR=vim
+shopt -s histappend
+shopt -s checkwinsize
+HISTSIZE=1000
+HISTFILESIZE=2000
 
 # Load aliases
 if [ -f ~/.bash_aliases ]; then
 	source ~/.bash_aliases
 fi
-
-# If not running interactively, don't do anything
-[ -z "$PS1" ] && return
 
 # Regular colors
 BLACK="\033[0;30m"

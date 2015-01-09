@@ -4,9 +4,11 @@
 #
 
 # Aliases
-BREW_VIM_CMD=$(brew --prefix macvim)/MacVim.app/Contents/MacOS/Vim
-if [ -f $BREW_VIM_CMD ]; then
-	alias vim=$BREW_VIM_CMD
+if [ "$(uname)" == "Darwin" ]; then
+	BREW_VIM_CMD=$(brew --prefix macvim)/MacVim.app/Contents/MacOS/Vim
+	if [ -f $BREW_VIM_CMD ]; then
+		alias vim=$BREW_VIM_CMD
+	fi
 fi
 alias gl="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
