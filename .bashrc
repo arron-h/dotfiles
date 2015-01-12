@@ -79,16 +79,18 @@ COLOR_WORKING_DIRECTORY="\[$BCYAN\]"
 
 function __git_prompt
 {
-	GITBRANCH_COLOUR=$RED
-	# Check if in git repo
-	if git branch &>/dev/null; then
-		# Check if there's changes
-		if git status | grep "nothing to commit" > /dev/null 2>&1; then
-			GITBRANCH_COLOUR=$GREEN;
-		fi
-	fi
+	GIT_CHANGES_COLOUR=$RED
+	GIT_NOCHANGES_COLOUR=$GREEN
 
-	__git_ps1 "%s" | sed 's/ \([+*]\{1,\}\)$/\1/' | sed "s/^/ on $(printf $GITBRANCH_COLOUR)/g"
+	GIT_PS1_SHOWDIRTYSTATE=1
+	
+	# The general gist of the following sed command is as follows:
+	# 1. Exploit the fact that git branches can't have spaces. So search for a string which does not have a space.
+	# 1.1. If this matches, set colour to NOCHANGES, insert capture and skip to end of commands.
+	# 2. Failing previous test, assume that the repo has changes because a space has been found, which indicates a following change state marker.
+	# 2.2. Remove change markers as we're using colourisation to show the change state.
+	# 3. Insert the full output and prefix the CHANGES colour.
+	__git_ps1 "%s" | sed -e "s/^\([^ ]\{1,\}\)$/ on $(printf $GIT_NOCHANGES_COLOUR)\1/;t" -e "s/ [*+#]\{1,\}//" -e "s/^/ on $(printf $GIT_CHANGES_COLOUR)/"
 }
 
 PS1="$COLOR_USERNAME$TEXT_USERNAME$RESET$TEXT_AT$COLOR_HOSTNAME$TEXT_HOSTNAME$RESET\
