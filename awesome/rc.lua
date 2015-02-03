@@ -6,6 +6,8 @@ require("awful.rules")
 require("beautiful")
 -- Notification library
 require("naughty")
+-- Widget library
+require("vicious")
 
 -- Load Debian menu entries
 require("debian.menu")
@@ -110,6 +112,12 @@ mytextclock = awful.widget.textclock({ align = "right" })
 -- Create a systray
 mysystray = widget({ type = "systray" })
 
+-- Create a battery indicator
+baticon = widget({ type = "imagebox" })
+baticon.image = image(beautiful.widget_bat)
+batwidget = widget({ type = "textbox" })
+vicious.register(batwidget, vicious.widgets.bat, "$1$2%", 61, "BAT0")
+
 -- Create a wibox for each screen and add it
 mywibox = {}
 mypromptbox = {}
@@ -185,6 +193,7 @@ for s = 1, screen.count() do
             layout = awful.widget.layout.horizontal.leftright
         },
         mylayoutbox[s],
+		batwidget,
         mytextclock,
         s == 1 and mysystray or nil,
         mytasklist[s],
@@ -386,6 +395,5 @@ client.add_signal("focus", function(c) c.border_color = beautiful.border_focus e
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 -- Use some gnome services
-exec("gnome-keyring-daemon --daemonize --login")
-exec("gnome-session --session=ubuntu")
+awful.util.spawn_with_shell("gnome-keyring-daemon --daemonize --login")
 -- }}}
