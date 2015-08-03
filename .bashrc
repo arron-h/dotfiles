@@ -33,6 +33,11 @@ if [ -f ~/.bash_aliases ]; then
 	source ~/.bash_aliases
 fi
 
+# Load local rc files
+if [ -f ~/.bashrc.local ]; then
+	source ~/.bashrc.local
+fi
+
 # Regular colors
 BLACK="\033[0;30m"
 RED="\033[0;31m"
