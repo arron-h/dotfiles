@@ -39,7 +39,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
+beautiful.init("~/.config/awesome/themes/arronh/theme.lua")
 
 -- Disable the caps lock key
 awful.util.spawn_with_shell("xmodmap ~/.config/xmodmap")
@@ -203,7 +203,7 @@ end
 -- }}}
 
 -- {{{ Switch monitors
-awful.util.spawn_with_shell("randr --output DVI-I-1 --right-of DP-2")
+awful.util.spawn_with_shell("xrandr --output DVI-I-1 --right-of DP-2")
 -- }}}
 
 -- {{{ Mouse bindings
