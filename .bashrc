@@ -16,6 +16,10 @@ else
 	if [ -f /etc/bash_completion ]; then
 		. /etc/bash_completion
 	fi
+
+	if [ -f /usr/share/git/git-prompt.sh ]; then
+		source /usr/share/git/git-prompt.sh
+	fi
 fi
 
 # Shell options
