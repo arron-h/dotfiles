@@ -7,8 +7,10 @@
 --  * http://awesome.naquadah.org/wiki/Nice_Icons
 
 -- {{{ Main
+local current_user = os.getenv("USER")
+
 theme = {}
-theme.wallpaper = "/home/arronh/.config/awesome/themes/arronh/background.jpg"
+theme.wallpaper = "/home/" .. current_user .. "/.config/awesome/themes/arronh/background.jpg"
 -- }}}
 
 -- {{{ Styles
