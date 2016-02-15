@@ -41,7 +41,7 @@ end
 beautiful.init("~/.config/awesome/themes/arronh/theme.lua")
 
 -- Disable the caps lock key
-awful.util.spawn_with_shell("xmodmap ~/.config/xmodmap")
+awful.util.spawn_with_shell("xmodmap ~/.config/awesome/xmodmap")
 
 -- Increase the keyboard rate
 awful.util.spawn_with_shell("xset r rate 250 40")
