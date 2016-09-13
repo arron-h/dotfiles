@@ -10,7 +10,7 @@
 local current_user = os.getenv("USER")
 
 theme = {}
-theme.wallpaper = "/home/" .. current_user .. "/.config/awesome/themes/arronh/background.jpg"
+theme.wallpaper = "/home/" .. current_user .. "/.config/awesome/themes/background.jpg"
 -- }}}
 
 -- {{{ Styles

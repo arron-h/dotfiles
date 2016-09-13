@@ -38,7 +38,9 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("~/.config/awesome/themes/arronh/theme.lua")
+--beautiful.init("~/.config/awesome/themes/theme.lua")
+beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
+
 
 -- Disable the caps lock key
 awful.util.spawn_with_shell("xmodmap ~/.config/awesome/xmodmap")
