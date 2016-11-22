@@ -37,3 +37,6 @@ dirsize ()
 	egrep '^ *[0-9.]*G' /tmp/list
 	rm /tmp/list
 }
+
+alias lock="xscreensaver-command -lock"
+

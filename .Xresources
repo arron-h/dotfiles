@@ -246,7 +246,7 @@ URxvt*secondaryScroll: false
 ! Compile frills: Associate action with keysym sym. The intervening resource name keysym. cannot be omitted.
 ! URxvt*keysym.sym: action
 
- URxvt*perl-ext-common: default,matcher
+URxvt*perl-ext-common: default,matcher,searchable-scrollback
 
 ! Comma-separated list(s) of perl extension scripts (default: "default") to use in this terminal instance; option -pe.
 ! URxvt*perl-ext: string
@@ -267,7 +267,7 @@ URxvt*secondaryScroll: false
 ! URxvt*searchable-scrollback: keysym *DEPRECATED*
 
 ! Specifies the program to be started with a URL argument. Used by the "selection-popup" and "matcher" perl extensions.
-URxvt*url-launcher: /usr/bin/opera
+URxvt*url-launcher: /usr/bin/firefox
 
 ! Compile frills: Sets the WM_TRANSIENT_FOR property to the given window id.
 ! URxvt*transient-for: windowid
@@ -281,4 +281,6 @@ URxvt*url-launcher: /usr/bin/opera
 ! Turn on/off ISO 14755 5.2 mode (default enabled).
 ! URxvt*iso14755_52: boolean
 
+URxvt.transparent: true
+URxvt.shading: 20
 
