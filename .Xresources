@@ -284,3 +284,4 @@ URxvt*url-launcher: /usr/bin/firefox
 URxvt.transparent: true
 URxvt.shading: 20
 
+#include ".Xresources.local"
