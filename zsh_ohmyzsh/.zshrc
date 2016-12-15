@@ -99,3 +99,12 @@ if command -v archey >/dev/null 2>&1; then
   archey
 fi
 
+# Load the environment variable file for SSH sessions
+REMOTE_DISPLAY_ENV_FILE="$HOME/.config/xorg_remote_display.env"
+if [ -n "$SSH_TTY" ]; then
+	if [ -f "$REMOTE_DISPLAY_ENV_FILE" ]; then
+		echo "Loading remote display environment file..."
+		. $REMOTE_DISPLAY_ENV_FILE
+		rm $REMOTE_DISPLAY_ENV_FILE
+	fi
+fi
