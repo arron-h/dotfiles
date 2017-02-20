@@ -108,3 +108,10 @@ if [ -n "$SSH_TTY" ]; then
 		rm $REMOTE_DISPLAY_ENV_FILE
 	fi
 fi
+
+##############################
+# Local configuration
+##############################
+if [ -f ~/.zshrc.local ]; then
+	source ~/.zshrc.local
+fi
